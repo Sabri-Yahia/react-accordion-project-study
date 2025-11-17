@@ -35,9 +35,10 @@ function Accordion({ faqsList }) {
 }
 
 function AccordionList({ num, title, text }) {
-  const [isOpen, SetIsOpen] = useState(false);
+  const [curOpen, SetCurOpen] = useState(null);
+  const isOpen = num === curOpen;
   const handleToggle = () => {
-    SetIsOpen(!isOpen);
+    SetCurOpen(isOpen ? null : num);
   };
   return (
     <div className={`item ${isOpen ? "open" : ""}`} onClick={handleToggle}>
